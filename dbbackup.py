@@ -19,11 +19,12 @@ db_path = "/etc/x-ui/x-ui.db"
 interval = 6 * 60 * 60
 
 while True:
-    # Sleep for the specified interval
-    time.sleep(interval)
 
     # Compose the message with the server hostname, IP address, and database file
     message = f"Server: {hostname} ({ip_address})\nDatabase file:"
     with open(db_path, "rb") as file:
         bot.send_document(chat_id, file, caption=message)
 
+    # Sleep for the specified interval
+    time.sleep(interval)
+    
